@@ -4,49 +4,10 @@
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <script src="https://unpkg.com/vue@next"></script>
- <title>Document</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+ <title>Hello Webpack!</title>
 </head>
 <body>
- <div id="app">
-  <h1 v-on:click="addWord">{{ message }}</h1>
-  <p  v-if="message.length > 20">stop it!</p>
-  <ul>
-   <li v-for="toDo in toDos">{{ toDo }}</li>
-  </ul>
-  <conponent-content v-bind:todos = "toDos"></conponent-content> <!-- v-bind:[변수명] = "가져올 데이터명"-->
- </div>
-
- <script>
-   // root Instance
-  const app ={
-    data() {
-     return {
-      message: "hello World!",
-      toDos: ['꾸준히 공부해야지', '어렵다', '차근차근'], //해당 데이터를 하위 컴포넌트에 전달
-      count: 0
-     }
-    },
-    methods: {
-     addWord() {
-      this.message += "!";
-     }
-    }
-   }
-
-  Vue.createApp(app) // Vue 어플리케이션을 생성한다. (상수 app을 기준으로)
-   .component('conponent-content', { // component함수를 사용하여 사용할 이름을 작성 후 temlplate을 작성한다.
-      template: `
-      <div>
-        <h2>이 곳은 component로 불러온 곳입니다.</h2>
-        <ul>
-          <li v-for="todo in todos" v:bind:key="todo"> {{ todo }}</li>
-        </ul>
-      </div>
-    `,
-    props:['todos'] // props함수를 사용하여 html에서 정한 v-bind 변수명을 호출한다.
-    })
-    .mount('#app'); // html에서 사용한 엘레먼트의 ID를 적어서 연결한다.
- </script>
+ <div id="app"></div>
 </body>
 </html>
